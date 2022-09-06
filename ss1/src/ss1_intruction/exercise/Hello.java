@@ -1,0 +1,13 @@
+package ss1_intruction.exercise;
+
+import java.util.Scanner;
+
+public class Hello {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("nhập tên vào đây: ");
+        String name = sc.nextLine();
+        System.out.println("Chào " + name + " nhá! ");
+    }
+}
