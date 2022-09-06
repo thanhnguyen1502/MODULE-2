@@ -133,10 +133,10 @@ public class NumberToLitter {
                     break;
             }
         } else if (number < 1000) {
-            int hc = number / 100;
-            int hn = (number / 10) % 10;
-            int dv = number % 10;
-            switch (hc) {
+            int hundreds = number / 100;
+            int tens = (number / 10) % 10;
+            int ones = number % 10;
+            switch (hundreds) {
                 case 1:
                     System.out.print("one hundred ");
                     break;
@@ -165,7 +165,7 @@ public class NumberToLitter {
                     System.out.print("Nine hundred ");
                     break;
             }
-            switch (hn) {
+            switch (tens) {
                 case 2:
                     System.out.print("twenty ");
                     break;
@@ -191,7 +191,7 @@ public class NumberToLitter {
                     System.out.print("ninety ");
                     break;
             }
-            switch (dv) {
+            switch (ones) {
                 case 1:
                     System.out.print("one");
                     break;
@@ -220,6 +220,8 @@ public class NumberToLitter {
                     System.out.print("Nine");
                     break;
             }
+        }else {
+            System.out.println("ngoài tầm với! ");
         }
     }
 }
