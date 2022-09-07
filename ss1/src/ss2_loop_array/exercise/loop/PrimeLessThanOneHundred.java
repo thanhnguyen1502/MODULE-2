@@ -1,4 +1,4 @@
-package ss2_array.exercise;
+package ss2_loop_array.exercise.loop;
 
 public class PrimeLessThanOneHundred {
     public static void main(String[] args) {
