@@ -1,4 +1,4 @@
-package ss3_method.exrcise;
+package ss4_loop_oop.exercise;
 
 public class Fan {
     final int SLOW = 1;

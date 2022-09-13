@@ -1,4 +1,4 @@
-package ss4_oop.execise.point2d;
+package ss6_inheritant.execise.execise2;
 
 public class Point2D {
     private float x = 0.0f;
@@ -37,9 +37,9 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return "Point2D{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return
+                "x = " + x + '\t' +
+                ", y = " + y
+                ;
     }
 }
