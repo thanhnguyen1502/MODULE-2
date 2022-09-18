@@ -1,53 +1,18 @@
 package mvc.student.model;
 
-public class Teacher {
-    private int id;
-    private String name;
-    private String DateOfBirth;
-    private String sex ;
+public class Teacher extends Person{
     private String specialize;
 
-    public Teacher() {
-    }
-
-    public Teacher(int id, String name, String dateOfBirth, String sex, String specialize) {
-        this.id = id;
-        this.name = name;
-        DateOfBirth = dateOfBirth;
-        this.sex = sex;
+    public Teacher(String code, String name, String dateOfBirth, String sex, String specialize) {
+        super(code, name, dateOfBirth, sex);
         this.specialize = specialize;
     }
 
-    public int getId() {
-        return id;
+    public Teacher(String specialize) {
+        this.specialize = specialize;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDateOfBirth() {
-        return DateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        DateOfBirth = dateOfBirth;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
+    public Teacher() {
     }
 
     public String getSpecialize() {
@@ -60,11 +25,7 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Giảng Viên:   " +
-                "Mã số: " + id + "\t"+
-                "Tên: " + name + "\t"+
-                "Ngày sinh: " + DateOfBirth + "\t"+
-                "Giới tính: " + sex + "\t"+
+        return super.toString()+
                 "Chuyên môn: " + specialize;
     }
 }

@@ -1,55 +1,21 @@
 package mvc.student.model;
 
-public class Student {
-    private int id;
-    private String name;
-    private String DateOfBirth;
-    private String sex ;
+public class Student extends Person{
     private String classer;
     private double score;
 
-    public Student() {
-    }
-
-    public Student(int id, String name, String dateOfBirth, String sex, String classer, double score) {
-        this.id = id;
-        this.name = name;
-        DateOfBirth = dateOfBirth;
-        this.sex = sex;
+    public Student(String code, String name, String dateOfBirth, String sex, String classer, double score) {
+        super(code, name, dateOfBirth, sex);
         this.classer = classer;
         this.score = score;
     }
 
-    public int getId() {
-        return id;
+    public Student(String classer, double score) {
+        this.classer = classer;
+        this.score = score;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDateOfBirth() {
-        return DateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        DateOfBirth = dateOfBirth;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
+    public Student() {
     }
 
     public String getClasser() {
@@ -70,10 +36,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Học Viên:   " + "Mã số: " + id + "\t"+
-                "Tên: " + name + "\t"+
-                "Ngày sinh: " + DateOfBirth + "\t"+
-                "Giới tính: " + sex + "\t"+
+        return  super.toString() +
                 "Lớp: " + classer + "\t"+
                 "Điểm: " + score
                 ;
