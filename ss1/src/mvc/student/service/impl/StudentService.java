@@ -18,49 +18,53 @@ public class StudentService implements IStudentService {
         System.out.println("Thêm mới thành công !");
     }
 
-    public Student infoStudent(){
-        System.out.println("code ?");
-        String code = sc.nextLine();
-        System.out.println("name ?");
-        String name = sc.nextLine();
-        System.out.println("date of birth ?");
-        String birth = sc.nextLine();
-        System.out.println("gender ?");
-        String gender = sc.nextLine();
-        System.out.println("classer ?");
-        String classer = sc.nextLine();
-        System.out.println("score ?");
-        double score = sc.nextDouble();
-        Student student = new Student(code,name,birth,gender,classer,score);
-        return student;
-    }
 
     @Override
     public void delete() {
-        System.out.print("Mời bạn nhập mã học sinh cần xóa: ");
-        String code = sc.nextLine();
-        boolean flagDelete = false;
-        for(int i = 0 ; i< studentList.size(); i++) {
-            if(studentList.get(i).getCode().equals(code)) {
-                System.out.println("Bạn có chắc muốn xóa học sinh này không? Nhập Y: yes, N: no");
-                String choice = sc.nextLine();
-                if(choice.equals("Y")) {
-                    studentList.remove(i);
-                    System.out.println("Xóa thành công");
+
+        System.out.println("nhập vào id học sinh cần xóa: ");
+        int idRemove = Integer.parseInt(sc.nextLine());
+        boolean isFlag = false;
+        for (Student student : studentList) {
+            if (student.getCode() == idRemove) {
+                System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
+                        "1. Có \n" +
+                        "2. Không");
+                int chooseYesNo = Integer.parseInt(sc.nextLine());
+                if (chooseYesNo == 1) {
+                    studentList.remove(student);
+                    System.out.println("Xóa thành công!.");
                 }
-                flagDelete = true;
+                isFlag = true;
                 break;
+
             }
         }
-        if(!flagDelete) {
-            System.out.println("Không tìm thấy đối tượng cần xóa.");
-        }
     }
+
+
 
     @Override
     public void display(){
         for (Student student: studentList) {
             System.out.println(student);
         }
+    }
+
+    public Student infoStudent(){
+        System.out.print("code ?");
+        int code = Integer.parseInt(sc.nextLine());
+        System.out.print("name ?");
+        String name = sc.nextLine();
+        System.out.print("date of birth ?");
+        String birth = sc.nextLine();
+        System.out.print("gender ?");
+        String gender = sc.nextLine();
+        System.out.print("classer ?");
+        String classer = sc.nextLine();
+        System.out.print("score ?");
+        double score = sc.nextDouble();
+        Student student = new Student(code,name,birth,gender,classer,score);
+        return student;
     }
 }

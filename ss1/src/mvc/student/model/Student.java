@@ -4,7 +4,7 @@ public class Student extends Person{
     private String classer;
     private double score;
 
-    public Student(String code, String name, String dateOfBirth, String sex, String classer, double score) {
+    public Student(int code, String name, String dateOfBirth, String sex, String classer, double score) {
         super(code, name, dateOfBirth, sex);
         this.classer = classer;
         this.score = score;

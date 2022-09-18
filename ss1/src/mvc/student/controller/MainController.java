@@ -7,7 +7,8 @@ public class MainController {
 
     public static void displayMainMenu() {
         System.out.println();
-        String choice = "";
+        String choice ="";
+
         do {
             System.out.println("-------CHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN VÀ GIẢNG VIÊN–-------\n" +
                     "Chọn chức năng theo số (để tiếp tục):\n" +
@@ -15,7 +16,7 @@ public class MainController {
                     "2. Giảng viên\n" +
                     "3. Thoát\n" +
                     "Chọn chức năng:\n");
-            choice = scanner.nextLine();
+            choice =  scanner.nextLine();
 
             switch (choice) {
                 case "1":

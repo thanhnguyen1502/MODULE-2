@@ -14,14 +14,45 @@ public class TeacherService implements ITeacherService {
 
     @Override
     public void add() {
-        Teacher teacher = this.infoStudent();
+        Teacher teacher = this.infoTeacher();
         teacherList.add(teacher);
         System.out.println("Thêm mới thành công !");
     }
 
-    public Teacher infoStudent(){
+
+
+    @Override
+    public void delete() {
+        System.out.println("nhập vào id giảng viên cần xóa: ");
+        int idRemove = Integer.parseInt(sc.nextLine());
+        boolean isFlag = false;
+        for (Teacher teacher : teacherList) {
+            if (teacher.getCode() == idRemove) {
+                System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
+                        "1. Có \n" +
+                        "2. Không");
+                int chooseYesNo = Integer.parseInt(sc.nextLine());
+                if (chooseYesNo == 1) {
+                    teacherList.remove(teacher);
+                    System.out.println("Xóa thành công!.");
+                }
+                isFlag = true;
+                break;
+
+            }
+        }
+    }
+
+    @Override
+    public void display() {
+        for (Teacher teacher: teacherList) {
+            System.out.println(teacher);
+        }
+    }
+
+    public Teacher infoTeacher(){
         System.out.println("code ?");
-        String code = sc.nextLine();
+        int code = Integer.parseInt(sc.nextLine());
         System.out.println("name ?");
         String name = sc.nextLine();
         System.out.println("date of birth ?");
@@ -32,35 +63,5 @@ public class TeacherService implements ITeacherService {
         String specialize = sc.nextLine();
         Teacher teacher = new Teacher(code,name,birth,gender,specialize);
         return teacher;
-    }
-
-    @Override
-    public void delete() {
-        System.out.print("Mời bạn nhập mã học sinh cần xóa: ");
-        int code = Integer.parseInt(sc.nextLine());
-        boolean flagDelete = false;
-        for(int i = 0 ; i< teacherList.size(); i++) {
-
-            if(teacherList.get(i).getCode().equals(code)) {
-                System.out.println("Bạn có chắc muốn xóa học sinh này không? Nhập Y: yes, N: no");
-                String choice = sc.nextLine();
-                if(choice.equals("Y")) {
-                    teacherList.remove(i);
-                    System.out.println("Xóa thành công");
-                }
-                flagDelete = true;
-                break;
-            }
-        }
-        if(!flagDelete) {
-            System.out.println("Không tìm thấy đối tượng cần xóa.");
-        }
-    }
-
-    @Override
-    public void display() {
-        for (Teacher teacher: teacherList) {
-            System.out.println(teacher);
-        }
     }
 }

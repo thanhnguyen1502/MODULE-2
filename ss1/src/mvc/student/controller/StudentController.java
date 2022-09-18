@@ -8,33 +8,38 @@ import java.util.Scanner;
 public class StudentController {
     public static Scanner scanner = new Scanner(System.in);
     public static IStudentService studentService = new StudentService();
-    public static void displayStudentMenu(){
+
+    public static void displayStudentMenu() {
         System.out.println();
-        String choice = "";
+        int choice;
+
         do {
-            System.out.println("1. Thêm mới học sinh\n" +
-                    "2. Xoá học sinh\n" +
-                    "3. Xem danh sách học sinh\n" +
+            System.out.println("------Học Sinh------ \n" +
+                    "1. Thêm mới\n" +
+                    "2. Xoá\n" +
+                    "3. Xem danh sách\n" +
                     "4. Thoát\n");
-            choice = scanner.nextLine();
+
+            choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
-                case "1":
+                case 1:
                     studentService.add();
                     break;
-                case "2":
+                case 2:
                     studentService.delete();
                     break;
-                case "3":
+                case 3:
                     studentService.display();
                     break;
-                case "4":
+                case 4:
+                    System.exit(0);
                     System.out.println("Bạn đã thoát khỏi chương trình");
                     break;
                 default:
                     System.out.println("Lựa chọn của bạn chưa có! Mời bạn chọn lại");
             }
-        }while (!choice.equals("4"));
+        } while (true);
     }
 
 }
