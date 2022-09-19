@@ -42,8 +42,6 @@ public class StudentService implements IStudentService {
         }
     }
 
-
-
     @Override
     public void display(){
         for (Student student: studentList) {
@@ -52,18 +50,18 @@ public class StudentService implements IStudentService {
     }
 
     public Student infoStudent(){
-        System.out.print("code ?");
+        System.out.println("Enter code ?: " );
         int code = Integer.parseInt(sc.nextLine());
-        System.out.print("name ?");
+        System.out.println("Enter name ?");
         String name = sc.nextLine();
-        System.out.print("date of birth ?");
+        System.out.println("Enter date of birth ?");
         String birth = sc.nextLine();
-        System.out.print("gender ?");
+        System.out.println("Enter gender ?");
         String gender = sc.nextLine();
-        System.out.print("classer ?");
+        System.out.println("Enter classer ?");
         String classer = sc.nextLine();
-        System.out.print("score ?");
-        double score = sc.nextDouble();
+        System.out.println("Enter score ?");
+        double score = Double.parseDouble(sc.nextLine());
         Student student = new Student(code,name,birth,gender,classer,score);
         return student;
     }

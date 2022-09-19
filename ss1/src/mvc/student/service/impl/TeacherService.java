@@ -51,15 +51,15 @@ public class TeacherService implements ITeacherService {
     }
 
     public Teacher infoTeacher(){
-        System.out.println("code ?");
+        System.out.println("Enter code ?");
         int code = Integer.parseInt(sc.nextLine());
-        System.out.println("name ?");
+        System.out.println("Enter name ?");
         String name = sc.nextLine();
-        System.out.println("date of birth ?");
+        System.out.println("Enter date of birth ?");
         String birth = sc.nextLine();
-        System.out.println("gender ?");
+        System.out.println("Enter gender ?");
         String gender = sc.nextLine();
-        System.out.println("Chuyên môn ?");
+        System.out.println("Enter specialize ?");
         String specialize = sc.nextLine();
         Teacher teacher = new Teacher(code,name,birth,gender,specialize);
         return teacher;
