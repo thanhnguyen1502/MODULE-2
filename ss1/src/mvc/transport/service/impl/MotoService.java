@@ -1,7 +1,6 @@
 package mvc.transport.service.impl;
 
 import mvc.transport.model.Moto;
-import mvc.transport.model.Oto;
 import mvc.transport.service.IMotoService;
 
 import java.util.ArrayList;
@@ -60,6 +59,7 @@ public class MotoService implements IMotoService {
             }
         }
     }
+
     public Moto infoMoto(){
         System.out.println("mời bạn nhập\n");
         System.out.println("Biển số xe: ");
