@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class MotoService implements IMotoService {
     public static Scanner sc = new Scanner(System.in);
     public static List<Moto> motoList = new ArrayList<>();
+
     @Override
     public void add() {
         Moto moto = this.infoMoto();

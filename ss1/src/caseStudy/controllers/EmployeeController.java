@@ -1,9 +1,13 @@
 package caseStudy.controllers;
 
+import caseStudy.services.IEmployeeService;
+import caseStudy.services.impl.EmployeeService;
+
 import java.util.Scanner;
 
 public class EmployeeController {
     private static Scanner sc = new Scanner(System.in);
+    private static IEmployeeService employeeService = new EmployeeService();
     static void displayEmployeeMenu(){
         int choice;
         do {
@@ -15,10 +19,13 @@ public class EmployeeController {
             choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case 1:
+                    employeeService.display();
                     break;
                 case 2:
+                    employeeService.add();
                     break;
                 case 3:
+                    employeeService.edit();
                     break;
                 case 4:
                     return;

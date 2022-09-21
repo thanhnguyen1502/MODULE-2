@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner sc = new Scanner(System.in);
-    private static void displayMainMenu(){
+     public static void displayMainMenu(){
         int choice;
         do {
             System.out.println("--- FURAMA RESORT ---\n" +

@@ -13,7 +13,7 @@ public class Person {
         this.code = code;
         this.name = name;
         this.birthDay = birthDay;
-        Gender = gender;
+        this.Gender = gender;
         this.cardID = cardID;
         this.numberPhone = numberPhone;
         this.email = email;
