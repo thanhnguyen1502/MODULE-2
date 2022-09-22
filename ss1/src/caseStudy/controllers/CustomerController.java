@@ -1,9 +1,13 @@
 package caseStudy.controllers;
 
+import caseStudy.services.ICustomerService;
+import caseStudy.services.impl.CustomerService;
+
 import java.util.Scanner;
 
 public class CustomerController {
     private static Scanner sc = new Scanner(System.in);
+    private static ICustomerService customerService = new CustomerService();
     static void displayCustomerMenu(){
         int choice;
         do {
@@ -15,10 +19,13 @@ public class CustomerController {
             choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case 1:
+                    customerService.display();
                     break;
                 case 2:
+                    customerService.add();
                     break;
                 case 3:
+                    customerService.edit();
                     break;
                 case 4:
                     return;
@@ -26,6 +33,5 @@ public class CustomerController {
                     System.out.println("không có, mời nhập lại");
             }
         }while (true);
-
     }
 }

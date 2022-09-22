@@ -1,18 +1,15 @@
 package caseStudy.models;
 
-public class Employee extends Person{
+public class Employee extends Person {
     private String lever;
     private String location;
     private String salary;
 
-    public Employee(String code, String name, String birthDay, String gender, String cardID, String numberPhone, String email, String lever, String location, String salary) {
+    public Employee(int code, String name, String birthDay, String gender, String cardID, String numberPhone, String email, String lever, String location, String salary) {
         super(code, name, birthDay, gender, cardID, numberPhone, email);
         this.lever = lever;
         this.location = location;
         this.salary = salary;
-    }
-
-    public Employee() {
     }
 
     public String getLever() {
@@ -42,8 +39,8 @@ public class Employee extends Person{
     @Override
     public String toString() {
         return "Nhân viên: " + super.toString() + '\t' +
-                "Cấp bậc: " + lever  + '\t' +
-                "Vị trí: " + location  + '\t' +
-                "Lương: " + salary ;
+                "Cấp bậc: " + lever + '\t' +
+                "Vị trí: " + location + '\t' +
+                "Lương: " + salary;
     }
 }
