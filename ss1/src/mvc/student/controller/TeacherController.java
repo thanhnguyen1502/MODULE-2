@@ -18,6 +18,8 @@ public class TeacherController {
                     "1. Thêm mới \n" +
                     "2. Xoá \n" +
                     "3. Xem danh sách\n" +
+                    "3. Tìm kiếm\n" +
+                    "3. Sắp xếp\n" +
                     "4. Thoát\n");
 
             choice = scanner.nextLine();
@@ -33,6 +35,12 @@ public class TeacherController {
                     teacherService.display();
                     break;
                 case "4":
+                    teacherService.search();
+                    break;
+                case "5":
+                    teacherService.sortName();
+                    break;
+                case "6":
                     System.out.println("Bạn đã thoát khỏi chương trình");
                     break;
                 default:

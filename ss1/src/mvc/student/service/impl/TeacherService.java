@@ -27,7 +27,7 @@ public class TeacherService implements ITeacherService {
         int idRemove = Integer.parseInt(sc.nextLine());
         boolean isFlag = false;
         for (Teacher teacher : teacherList) {
-            if (teacher.getCode() == idRemove) {
+            if (teacher.getCode().equals(idRemove)) {
                 System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
                         "1. Có \n" +
                         "2. Không");
@@ -50,9 +50,49 @@ public class TeacherService implements ITeacherService {
         }
     }
 
+    @Override
+    public void search() {
+        System.out.println("Tìm kiếm:\n" +
+                "1. theo tên\n" +
+                "2. theo mã");
+        int choise = Integer.parseInt(sc.nextLine());
+        switch (choise) {
+            case 1:
+                System.out.println("Nhập tên học sinh");
+                String name = sc.nextLine();
+                for (int i = 0; i < teacherList.size(); i++) {
+                    if (teacherList.get(i).getName().contains(name)) {
+                        System.out.println(teacherList.get(i));
+                    }
+                }
+            case 2:
+                System.out.println("Nhập mã học sinh");
+                String code = sc.nextLine();
+                for (int i = 0; i < teacherList.size(); i++) {
+                    if (teacherList.get(i).getName().equals(code)) {
+                        System.out.println(teacherList.get(i));
+                        break;
+                    }
+                }
+        }
+    }
+
+    @Override
+    public void sortName() {
+        for (int i = 0; i < teacherList.size() - 1; i++) {
+            for (int j = teacherList.size() - 1; j > i; j--) {
+                if (teacherList.get(j).compareTo(teacherList.get(j - 1)) < 0) {
+                    Teacher temp = teacherList.get(j);
+                    teacherList.set(j, teacherList.get(j - 1));
+                    teacherList.set(j - 1, temp);
+                }
+            }
+        }
+    }
+
     public Teacher infoTeacher(){
         System.out.println("Enter code ?");
-        int code = Integer.parseInt(sc.nextLine());
+        String code = sc.nextLine();
         System.out.println("Enter name ?");
         String name = sc.nextLine();
         System.out.println("Enter date of birth ?");

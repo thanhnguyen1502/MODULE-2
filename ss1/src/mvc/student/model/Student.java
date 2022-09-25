@@ -1,10 +1,10 @@
 package mvc.student.model;
 
-public class Student extends Person{
+public class Student extends Person implements Comparable<Student>{
     private String classer;
     private double score;
 
-    public Student(int code, String name, String dateOfBirth, String sex, String classer, double score) {
+    public Student(String code, String name, String dateOfBirth, String sex, String classer, double score) {
         super(code, name, dateOfBirth, sex);
         this.classer = classer;
         this.score = score;
@@ -40,5 +40,17 @@ public class Student extends Person{
                 "Lớp: " + classer + "\t"+
                 "Điểm: " + score
                 ;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        int compareName = this.getName().compareTo(o.getName());
+        if (compareName > 0) {
+            return 1;
+        }
+        if (compareName == 0) {
+            return this.getCode().compareTo(o.getCode());
+        }
+        return -1;
     }
 }

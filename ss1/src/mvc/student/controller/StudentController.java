@@ -18,6 +18,8 @@ public class StudentController {
                     "1. Thêm mới\n" +
                     "2. Xoá\n" +
                     "3. Xem danh sách\n" +
+                    "3. Tìm kiếm\n" +
+                    "3. Sắp xếp\n" +
                     "4. Thoát\n");
 
             choice = Integer.parseInt(scanner.nextLine());
@@ -33,6 +35,12 @@ public class StudentController {
                     studentService.display();
                     break;
                 case 4:
+                    studentService.search();
+                    break;
+                case 5:
+                    studentService.sortName();
+                    break;
+                case 6:
                     System.exit(0);
                     System.out.println("Bạn đã thoát khỏi chương trình");
                     break;
@@ -41,5 +49,4 @@ public class StudentController {
             }
         } while (true);
     }
-
 }

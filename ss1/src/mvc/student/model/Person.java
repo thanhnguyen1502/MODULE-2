@@ -1,12 +1,12 @@
 package mvc.student.model;
 
 public class Person {
-    private int code;
+    private String code;
     private String name;
     private String DateOfBirth;
     private String sex ;
 
-    public Person(int code, String name, String dateOfBirth, String sex) {
+    public Person(String code, String name, String dateOfBirth, String sex) {
         this.code = code;
         this.name = name;
         DateOfBirth = dateOfBirth;
@@ -16,11 +16,11 @@ public class Person {
     public Person() {
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

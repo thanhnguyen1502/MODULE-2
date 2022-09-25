@@ -26,7 +26,7 @@ public class StudentService implements IStudentService {
         int idRemove = Integer.parseInt(sc.nextLine());
         boolean isFlag = false;
         for (Student student : studentList) {
-            if (student.getCode() == idRemove) {
+            if (student.getCode().equals(idRemove)) {
                 System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
                         "1. Có \n" +
                         "2. Không");
@@ -43,15 +43,56 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public void display(){
-        for (Student student: studentList) {
+    public void display() {
+        for (Student student : studentList) {
             System.out.println(student);
         }
     }
 
-    public Student infoStudent(){
-        System.out.println("Enter code ?: " );
-        int code = Integer.parseInt(sc.nextLine());
+    @Override
+    public void search() {
+        System.out.println("Tìm kiếm:\n" +
+                "1. theo tên\n" +
+                "2. theo mã");
+        int choise = Integer.parseInt(sc.nextLine());
+        switch (choise) {
+            case 1:
+                System.out.println("Nhập tên học sinh");
+                String name = sc.nextLine();
+                for (int i = 0; i < studentList.size(); i++) {
+                    if (studentList.get(i).getName().contains(name)) {
+                        System.out.println(studentList.get(i));
+                    }
+                }
+            case 2:
+                System.out.println("Nhập mã học sinh");
+                String code = sc.nextLine();
+                for (int i = 0; i < studentList.size(); i++) {
+                    if (studentList.get(i).getName().equals(code)) {
+                        System.out.println(studentList.get(i));
+                        break;
+                    }
+                }
+        }
+    }
+
+    @Override
+    public void sortName() {
+        for (int i = 0; i < studentList.size() - 1; i++) {
+            for (int j = studentList.size() - 1; j > i; j--) {
+                if (studentList.get(j).compareTo(studentList.get(j - 1)) < 0) {
+                    Student temp = studentList.get(j);
+                    studentList.set(j, studentList.get(j - 1));
+                    studentList.set(j - 1, temp);
+                }
+            }
+        }
+    }
+
+
+    public Student infoStudent() {
+        System.out.println("Enter code ?: ");
+        String code = sc.nextLine();
         System.out.println("Enter name ?");
         String name = sc.nextLine();
         System.out.println("Enter date of birth ?");
@@ -62,7 +103,7 @@ public class StudentService implements IStudentService {
         String classer = sc.nextLine();
         System.out.println("Enter score ?");
         double score = Double.parseDouble(sc.nextLine());
-        Student student = new Student(code,name,birth,gender,classer,score);
+        Student student = new Student(code, name, birth, gender, classer, score);
         return student;
     }
 }
