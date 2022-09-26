@@ -91,8 +91,20 @@ public class StudentService implements IStudentService {
 
 
     public Student infoStudent() {
-        System.out.println("Enter code ?: ");
-        String code = sc.nextLine();
+        String code;
+        while (true){
+            try{
+                System.out.println("Enter code ?: ");
+                code = sc.nextLine();
+                if (!code.matches("[0-9]{4}")){
+                    throw new NumberFormatException("bạn nhập không đúng rồi ☺ ");
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         System.out.println("Enter name ?");
         String name = sc.nextLine();
         System.out.println("Enter date of birth ?");
