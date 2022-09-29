@@ -1,30 +1,45 @@
 package mvc.student.service.impl;
 
+import mvc.student.model.Person;
 import mvc.student.model.Teacher;
 import mvc.student.service.ITeacherService;
+import mvc.student.util.read_write.ReadFife;
+import mvc.student.util.read_write.WriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class TeacherService implements ITeacherService {
+    public static final String TEACHER_PATH = "ss1/src/mvc/student/data/teacher.scv";
     private static Scanner sc = new Scanner(System.in);
     private static List<Teacher> teacherList = new ArrayList<>();
 
+//    static {
+//        teacherList.add(new Teacher("1", "Quang","1/1/1992","Nam", "Giang vien"));
+//        teacherList.add(new Teacher("1", "Hai","1/1/1992","Nam", "Tutor"));
+//        teacherList.add(new Teacher("1", "Quang","1/1/1992","Nam", "Giang vien"));
+//    }
 
     @Override
-    public void add() {
+    public void add() throws IOException {
+        teacherList = ReadFife.teacherReadFile(TEACHER_PATH);
+//        teacherList = ReadFife
         Teacher teacher = this.infoTeacher();
         teacherList.add(teacher);
         System.out.println("Thêm mới thành công !");
+        WriteFile.writeFileTeacher(TEACHER_PATH, teacherList);
+
     }
 
 
-
     @Override
-    public void delete() {
+    public void delete() throws IOException {
+        teacherList = ReadFife.teacherReadFile(TEACHER_PATH);
+
         System.out.println("nhập vào id giảng viên cần xóa: ");
-        int idRemove = Integer.parseInt(sc.nextLine());
+        String idRemove = sc.nextLine();
         boolean isFlag = false;
         for (Teacher teacher : teacherList) {
             if (teacher.getCode().equals(idRemove)) {
@@ -41,17 +56,25 @@ public class TeacherService implements ITeacherService {
 
             }
         }
+        WriteFile.writeFileTeacher(TEACHER_PATH, teacherList);
+
     }
 
     @Override
-    public void display() {
-        for (Teacher teacher: teacherList) {
+    public void display() throws IOException {
+        teacherList = ReadFife.teacherReadFile(TEACHER_PATH);
+
+        for (Teacher teacher : teacherList) {
             System.out.println(teacher);
         }
+        WriteFile.writeFileTeacher(TEACHER_PATH, teacherList);
+
     }
 
     @Override
-    public void search() {
+    public void search() throws IOException {
+        teacherList = ReadFife.teacherReadFile(TEACHER_PATH);
+
         System.out.println("Tìm kiếm:\n" +
                 "1. theo tên\n" +
                 "2. theo mã");
@@ -75,10 +98,14 @@ public class TeacherService implements ITeacherService {
                     }
                 }
         }
+        WriteFile.writeFileTeacher(TEACHER_PATH, teacherList);
+
     }
 
     @Override
-    public void sortName() {
+    public void sortName() throws IOException {
+        teacherList = ReadFife.teacherReadFile(TEACHER_PATH);
+
         for (int i = 0; i < teacherList.size() - 1; i++) {
             for (int j = teacherList.size() - 1; j > i; j--) {
                 if (teacherList.get(j).compareTo(teacherList.get(j - 1)) < 0) {
@@ -88,15 +115,17 @@ public class TeacherService implements ITeacherService {
                 }
             }
         }
+        WriteFile.writeFileTeacher(TEACHER_PATH, teacherList);
+
     }
 
-    public Teacher infoTeacher(){
+    public Teacher infoTeacher() {
         String code;
-        while (true){
-            try{
+        while (true) {
+            try {
                 System.out.println("Enter code ?: ");
                 code = sc.nextLine();
-                if (!code.matches("[0-9]{4}")){
+                if (!code.matches("[0-9]{2}")) {
                     throw new NumberFormatException("bạn nhập không đúng rồi ☺ !");
                 }
                 break;
@@ -112,7 +141,7 @@ public class TeacherService implements ITeacherService {
         String gender = sc.nextLine();
         System.out.println("Enter specialize ?");
         String specialize = sc.nextLine();
-        Teacher teacher = new Teacher(code,name,birth,gender,specialize);
+        Teacher teacher = new Teacher(code, name, birth, gender, specialize);
         return teacher;
     }
 }

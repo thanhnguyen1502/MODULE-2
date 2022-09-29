@@ -8,10 +8,6 @@ public class Teacher extends Person implements Comparable<Teacher>{
         this.specialize = specialize;
     }
 
-    public Teacher(String specialize) {
-        this.specialize = specialize;
-    }
-
     public Teacher() {
     }
 
@@ -25,8 +21,8 @@ public class Teacher extends Person implements Comparable<Teacher>{
 
     @Override
     public String toString() {
-        return super.toString()+
-                "Chuyên môn: " + specialize;
+        return  super.toString() + ","+specialize;
+//                "Chuyên môn: " + specialize;
     }
 
     @Override

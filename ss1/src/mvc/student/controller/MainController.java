@@ -1,10 +1,11 @@
 package mvc.student.controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainController {
     public static Scanner scanner = new Scanner(System.in);
-    public static void displayMainMenu() {
+    public static void displayMainMenu() throws IOException {
         System.out.println();
         String choice ="";
 

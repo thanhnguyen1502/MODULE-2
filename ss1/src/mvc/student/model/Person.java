@@ -50,10 +50,12 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Học Viên:   " + "Mã số: " + code + "\t"+
-                "Tên: " + name + "\t"+
-                "Ngày sinh: " + DateOfBirth + "\t"+
-                "Giới tính: " + sex + "\t"
+        return
+                this.code+","+this.getName()+","+DateOfBirth+","+sex
+//                "Học Viên:   " + "Mã số: " + code + "\t"+
+//                "Tên: " + name + "\t"+
+//                "Ngày sinh: " + DateOfBirth + "\t"+
+//                "Giới tính: " + sex + "\t"
                 ;
     }
 }

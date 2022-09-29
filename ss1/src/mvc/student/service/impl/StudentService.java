@@ -1,8 +1,12 @@
 package mvc.student.service.impl;
 
 import mvc.student.model.Student;
+import mvc.student.model.Teacher;
 import mvc.student.service.IStudentService;
+import mvc.student.util.read_write.ReadFife;
+import mvc.student.util.read_write.WriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,19 +15,28 @@ public class StudentService implements IStudentService {
     private static Scanner sc = new Scanner(System.in);
     private static List<Student> studentList = new ArrayList<>();
 
+//    static {
+//        studentList.add(new Student("1","Thành","15/2/1997", "nam", "C0422G1", 5.5 ));
+//        studentList.add(new Student("2","Lệ","24/1/1997", "nam", "C0422G1", 4.5 ));
+//        studentList.add(new Student("3","Ngân","3/2/1998", "nam", "C0422G1", 7.5 ));
+//    }
+
     @Override
-    public void add() {
+    public void add() throws IOException {
+        studentList= ReadFife.studentReadFile("ss1/src/mvc/student/data/student.csv");
         Student student = this.infoStudent();
         studentList.add(student);
         System.out.println("Thêm mới thành công !");
+        WriteFile.writeFileStudent("ss1/src/mvc/student/data/student.csv",studentList);
     }
 
 
     @Override
-    public void delete() {
+    public void delete() throws IOException {
+        studentList= ReadFife.studentReadFile("ss1/src/mvc/student/data/student.csv");
 
         System.out.println("nhập vào id học sinh cần xóa: ");
-        int idRemove = Integer.parseInt(sc.nextLine());
+        String idRemove = sc.nextLine();
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getCode().equals(idRemove)) {
@@ -40,17 +53,25 @@ public class StudentService implements IStudentService {
 
             }
         }
+        WriteFile.writeFileStudent("ss1/src/mvc/student/data/student.csv",studentList);
+
     }
 
     @Override
-    public void display() {
+    public void display() throws IOException {
+        studentList= ReadFife.studentReadFile("ss1/src/mvc/student/data/student.csv");
+
         for (Student student : studentList) {
             System.out.println(student);
         }
+        WriteFile.writeFileStudent("ss1/src/mvc/student/data/student.csv",studentList);
+
     }
 
     @Override
-    public void search() {
+    public void search() throws IOException {
+        studentList= ReadFife.studentReadFile("ss1/src/mvc/student/data/student.csv");
+
         System.out.println("Tìm kiếm:\n" +
                 "1. theo tên\n" +
                 "2. theo mã");
@@ -74,6 +95,8 @@ public class StudentService implements IStudentService {
                     }
                 }
         }
+        WriteFile.writeFileStudent("ss1/src/mvc/student/data/student.csv",studentList);
+
     }
 
     @Override
@@ -96,7 +119,7 @@ public class StudentService implements IStudentService {
             try{
                 System.out.println("Enter code ?: ");
                 code = sc.nextLine();
-                if (!code.matches("[0-9]{4}")){
+                if (!code.matches("[0-9]{2}")){
                     throw new NumberFormatException("bạn nhập không đúng rồi ☺ ");
                 }
                 break;

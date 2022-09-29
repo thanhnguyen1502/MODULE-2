@@ -3,13 +3,14 @@ package mvc.student.controller;
 import mvc.student.service.IStudentService;
 import mvc.student.service.impl.StudentService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class StudentController {
     public static Scanner scanner = new Scanner(System.in);
     public static IStudentService studentService = new StudentService();
 
-    public static void displayStudentMenu() {
+    public static void displayStudentMenu() throws IOException {
         System.out.println();
         int choice;
 
@@ -18,9 +19,9 @@ public class StudentController {
                     "1. Thêm mới\n" +
                     "2. Xoá\n" +
                     "3. Xem danh sách\n" +
-                    "3. Tìm kiếm\n" +
-                    "3. Sắp xếp\n" +
-                    "4. Thoát\n");
+                    "4. Tìm kiếm\n" +
+                    "5. Sắp xếp\n" +
+                    "6. Thoát\n");
 
             choice = Integer.parseInt(scanner.nextLine());
 

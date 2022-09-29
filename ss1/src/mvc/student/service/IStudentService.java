@@ -1,9 +1,11 @@
 package mvc.student.service;
 
+import java.io.IOException;
+
 public interface IStudentService {
-    void add();
-    void delete();
-    void display();
-    void search();
+    void add() throws IOException;
+    void delete() throws IOException;
+    void display() throws IOException;
+    void search() throws IOException;
     void sortName();
 }
