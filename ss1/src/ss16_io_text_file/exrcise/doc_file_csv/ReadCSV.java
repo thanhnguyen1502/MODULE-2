@@ -16,16 +16,19 @@ public class ReadCSV {
                 if (line == null) {
                     break;
                 }
+
                 // cứ mỗi line đọc được, chuyển line đó thành mảng arr với mỗi phần tử đc cắt bỡi dấu phẩy
                 String[] arr = line.split(",");
 
                 // khởi tạo đối tượng contry với các tham số lần lượt là các phần tử trong mảng arr
                 Country country = new Country(Integer.parseInt(arr[0]), arr[1], arr[2]);
                 countryList.add(country); // add đối tượng contry mới đc tạo vào List
+
             }
         } catch (IOException e) {
             System.out.println("không tìm thấy file");
         }
+
         return countryList;
     }
 

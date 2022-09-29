@@ -1,8 +1,7 @@
 package ss16_io_text_file.exrcise.copy_file_text;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class CoppyFile {
     public void coppy(String sourcFile, String targetFile){
