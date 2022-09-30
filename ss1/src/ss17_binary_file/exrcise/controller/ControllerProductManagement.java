@@ -12,12 +12,12 @@ public class ControllerProductManagement {
     public static void displayMainProduct() {
         String choice = "";
         do {
-            System.out.println("HỆ THỐNG QUẢNG LÝ SẢN PHẨM\" + \"\\n\" +\n" +
-                    "                    \"1. Thêm sản phẩm\" + \"\\n\" +\n" +
-                    "                    \"2. Hiển thị sản phẩm\" + \"\\n\" +\n" +
-                    "                    \"3. cập nhật sản phẩm\" + \"\\n\" +\n" +
-                    "                    \"4. Xóa sản phẩm\" + \"\\n\" +\n" +
-                    "                    \"5. Tìm kiếm thông tin sản phẩm\" + \"\\n\" +\n" +
+            System.out.println("HỆ THỐNG QUẢNG LÝ SẢN PHẨM\"  +\n" +
+                    "                    \"1. Thêm sản phẩm\"+\n" +
+                    "                    \"2. Hiển thị sản phẩm\" +\n" +
+                    "                    \"3. cập nhật sản phẩm\" +\n" +
+                    "                    \"4. Xóa sản phẩm\" + \n" +
+                    "                    \"5. Tìm kiếm thông tin sản phẩm\" + \n" +
                     "                    \"6. Thoát\" + \"\\n\" +\n" +
                     "                    \">>> CHỌN CHỨC NĂNG <<<");
             choice = scanner.nextLine();
@@ -28,17 +28,11 @@ public class ControllerProductManagement {
                 case "2":
                     serviceProductManagement.display();
                     break;
-                case "3":
-                    serviceProductManagement.update();
 
-                    break;
-                case "4":
-                    serviceProductManagement.remove();
-                    break;
-                case "5":
+                case "3":
                     serviceProductManagement.find();
                     break;
-                case "6":
+                case "4":
                     System.exit(0);
             }
         } while (true);

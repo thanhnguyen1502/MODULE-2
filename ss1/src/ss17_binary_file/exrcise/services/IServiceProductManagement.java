@@ -6,9 +6,5 @@ public interface IServiceProductManagement {
 
     void display();
 
-    void update();
-
-    void remove();
-
     void find();
 }
