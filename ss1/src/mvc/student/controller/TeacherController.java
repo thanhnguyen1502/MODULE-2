@@ -42,11 +42,11 @@ public class TeacherController {
                     teacherService.sortName();
                     break;
                 case "6":
-                    System.out.println("Bạn đã thoát khỏi chương trình");
-                    break;
+                   return;
+//                    System.out.println("Bạn đã thoát khỏi chương trình");
                 default:
                     System.out.println("Lựa chọn của bạn chưa có! Mời bạn chọn lại");
             }
-        } while (!choice.equals("4"));
+        } while (true);
     }
 }

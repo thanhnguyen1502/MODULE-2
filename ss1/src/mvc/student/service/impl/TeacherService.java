@@ -1,6 +1,5 @@
 package mvc.student.service.impl;
 
-import mvc.student.model.Person;
 import mvc.student.model.Teacher;
 import mvc.student.service.ITeacherService;
 import mvc.student.util.read_write.ReadFife;

@@ -7,5 +7,5 @@ public interface IStudentService {
     void delete() throws IOException;
     void display() throws IOException;
     void search() throws IOException;
-    void sortName();
+    void sortName() throws IOException;
 }
